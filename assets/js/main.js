@@ -5,7 +5,7 @@ function load() {
     const liInput = document.querySelectorAll('li')
     const outTasks = container.querySelector('.outTasks')
     const allTasks = []
-    
+
     console.log(liInput)
 
     function newNote() {
@@ -37,18 +37,10 @@ function load() {
     }
 
     function setTasks(body, value, onload) {
-        if (onload) {
-            const obj = []
-            
-            for (let values of value) {
-                obj.push(JSON.parse(eval(`localStorage.${values}`)))
-            }
-
-            value = obj
-        }
+        if (onload) value = transformObj(value)
 
         body.innerHTML = ``
-        
+
         for (let task of value) {
             outTasks.innerHTML += `
                 <div class='tasks'>
@@ -61,10 +53,20 @@ function load() {
 
     }
 
+    function transformObj(value) {
+        const obj = []
+
+        for (let values of value) {
+            obj.push(JSON.parse(eval(`localStorage.${values}`)))
+        }
+
+        return obj
+    }
+
     function moreOptions() {
         document.querySelector('nav').classList.toggle('nav')
         imgInput[4].classList.toggle('clicked')
-        
+
         if (imgInput[4].getAttribute('src') === './assets/icon/more-options.svg') {
             imgInput[4].setAttribute('src', './assets/icon/cancel.svg')
         } else {
@@ -74,11 +76,11 @@ function load() {
 
     function loadTasksStorage() {
         const len = localStorage.length
-        
+
         if (!len) return
 
         const keys = Object.keys(localStorage);
-        
+
         setTasks(outTasks, keys, true)
     }
 
