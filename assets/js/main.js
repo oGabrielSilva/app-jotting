@@ -2,8 +2,11 @@ function load() {
     const container = document.querySelector('.container')
     const imgInput = document.querySelectorAll('.imgInput')
     const form = container.querySelector('form')
+    const liInput = document.querySelectorAll('li')
     const outTasks = container.querySelector('.outTasks')
     const allTasks = []
+    
+    console.log(liInput)
 
     function newNote() {
         moreOptions()
@@ -84,7 +87,7 @@ function load() {
     form.addEventListener('submit', newTask)
 
     document.addEventListener('click', (e) => {
-        if (e.target === imgInput[0]) newNote()
+        if (e.target === imgInput[0] || e.target === liInput[0]) newNote()
         if (e.target === imgInput[4]) moreOptions()
     })
 
