@@ -60,6 +60,10 @@ function load() {
             obj.push(JSON.parse(eval(`localStorage.${values}`)))
         }
 
+        for(let i of obj) {
+            allTasks.push(i)
+        }
+
         return obj
     }
 
