@@ -1,0 +1,29 @@
+@media (max-width: 900px) {
+    * {
+        font-size: 13.5px;
+    }
+
+    .outTasks {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px){
+    * {
+        font-size: 13px;
+    }
+    
+    .outTasks {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 310px) {
+    * {
+        font-size: 12px;
+    }
+    
+    .outTasks {
+        grid-template-columns: 1fr;
+    }
+}

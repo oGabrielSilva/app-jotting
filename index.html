@@ -8,17 +8,24 @@
     <title>Jotting</title>
     <link rel="shortcut icon" href="./assets/icon/icon.svg" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/form.css">
+    <link rel="stylesheet" href="./assets/css/inputs.css">
+    <link rel="stylesheet" href="./assets/css/nav.css">
+    <link rel="stylesheet" href="./assets/css/media.css">
+    <link rel="stylesheet" href="./assets/css/keyframes.css">
 </head>
 
 <body>
     <header>
-        <h3 style="display: flex; cursor: default; user-select: none; align-items: center;"> <img draggable="false" src="./assets/icon/icon.svg"
-                style="width: 3em" alt="Ícone"> Jotting</h3>
+        <h3 style="display: flex; cursor: default; user-select: none; align-items: center;"> <img draggable="false"
+                src="./assets/icon/icon.svg" style="width: 3em" alt="Ícone"> Jotting</h3>
         <nav>
             <ul>
-                <li><img draggable="false" src="./assets/icon/more-note.svg" class="imgInput" alt="Mais notas">Crie uma nota</li>
+                <li><img draggable="false" src="./assets/icon/more-note.svg" class="imgInput" alt="Mais notas">Crie uma
+                    nota</li>
                 <li><img draggable="false" src="./assets/icon/edit.svg" class="imgInput" alt="Edite">Edite sua nota</li>
-                <li><img draggable="false" src="./assets/icon/trash.svg" class="imgInput" alt="Delete">Delete uma nota</li>
+                <li><img draggable="false" src="./assets/icon/trash.svg" class="imgInput" alt="Delete">Delete uma nota
+                </li>
                 <li><img draggable="false" src="./assets/icon/world.svg" class="imgInput" alt="Nós">Mais sobre nós</li>
             </ul>
         </nav>
@@ -27,8 +34,7 @@
     <section class="container">
         <form>
             <div class="title">
-                <input type="text" placeholder="Título" id="task">
-
+                <input type="text" placeholder="Título" id="task" maxlength="21">
                 <button>OK</button>
             </div>
             <textarea id="text" placeholder="Sua nota"></textarea>
@@ -39,7 +45,8 @@
     </section>
 
     <footer>
-        <img draggable="false" src="./assets/icon/more-options.svg" class="imgInput" style="width: 4em;" alt="More Note">
+        <img draggable="false" src="./assets/icon/more-options.svg" class="imgInput" style="width: 4em;"
+            alt="More Note">
     </footer>
 
     <script src="./assets/js/main.js"></script>

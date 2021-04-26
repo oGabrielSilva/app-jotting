@@ -1,0 +1,38 @@
+header {
+    padding: 0 .2em;
+    min-height: 10vh;
+    border-bottom: 1px solid var(--primary-color-font);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: whitesmoke;
+}
+
+nav {
+    display: none;
+    position: fixed;
+    bottom: 7em;
+    right: 1.5em;
+}
+
+.nav {
+    display: block;
+    animation: toFrom 1s;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    min-width: 10vw;
+    padding: .2em 1.5em;
+    background: var(--primary-color-font);
+    border-radius: 2em;
+    user-select: none;
+}

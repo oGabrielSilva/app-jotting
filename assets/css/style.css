@@ -5,24 +5,6 @@
     --primary-color-font: #69716c;
 }
 
-@keyframes toFrom {
-    to {
-        transform: scale(1);
-    }
-    from {
-        transform: scale(0);
-    }
-}
-
-@keyframes fromTo {
-    to {
-        transform: scale(0);
-    }
-    from {
-        transform: scale(1);
-    }
-}
-
 * {
     box-sizing: border-box;
     outline: 0;
@@ -39,17 +21,6 @@ body {
     
 }
 
-header {
-    padding: 0 .2em;
-    min-height: 10vh;
-    border-bottom: 1px solid var(--primary-color-font);
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: whitesmoke;
-}
-
 .imgInput {
     width: 3em;
     cursor: pointer;
@@ -58,61 +29,13 @@ header {
     user-select: none;
 }
 
+.clicked {
+    animation: click .5s;
+}
+
 .container {
     width: 100vw;
     min-height: 90vh;
-}
-
-form {
-    display: none;
-}
-
-.form {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding: 3em 0 0;
-    background: var(--primary-color);
-    border: 1px solid var(--primary-color-font);
-    width: 95vw;
-    margin: 1.5em auto;
-    animation: toFrom 1s;
-}
-
-#text {
-    width: 80vw;
-    border: none;
-    padding: .5em 1em;
-    height: 70vh;
-    overflow: auto;
-    resize: none;
-    background: var(--primary-color);
-    color: whitesmoke;
-}
-
-.title {
-    display: flex;
-}
-
-input {
-    padding: 1em;
-    width: 70vw;
-    background: var(--primary-color);
-    color: whitesmoke;
-}
-
-button {
-    min-width: 10vw;
-    background: var(--primary-color);
-    color: var(--primary-color-font);
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover {
-    background: var(--primary-color-font);
-    color: whitesmoke;
 }
 
 .outTasks {
@@ -124,76 +47,18 @@ button:hover {
 
 .tasks {
     padding: 1em 1em 5em 1em;
-    min-height: 10vh;
+    max-height: 70vh;
     background: var(--primary-color);
     border: 1px solid var(--primary-color-font);
     border-radius: .5em;
     margin: 1em .5em;
     color: #fff;
+    overflow: auto;
+    word-wrap: break-word;
 }
-
-
-@media (max-width: 900px) {
-    * {
-        font-size: 13.5px;
-    }
-
-    .outTasks {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-
-@media (max-width: 600px){
-    * {
-        font-size: 13px;
-    }
-    
-    .outTasks {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 310px) {
-    * {
-        font-size: 12px;
-    }
-    
-    .outTasks {
-        grid-template-columns: 1fr;
-    }
-}
-
 
 footer img {
     position: fixed;
-    bottom: 1em;
-    right: 1em;
-}
-
-nav {
-    display: none;
-    position: absolute;
-    bottom: 7em;
-    right: 1.5em;
-}
-
-.nav {
-    display: block;
-    animation: toFrom 1s;
-}
-
-ul {
-    list-style: none;
-}
-
-li {
-    margin-top: 1em;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    min-width: 10vw;
-    padding: .2em 1.5em;
-    background: var(--primary-color-font);
-    border-radius: 2em;
-    user-select: none;
+    bottom: 2em;
+    right: 2em;
 }

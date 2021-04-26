@@ -1,0 +1,19 @@
+input {
+    padding: 1em;
+    width: 70vw;
+    background: var(--primary-color);
+    color: whitesmoke;
+}
+
+button {
+    min-width: 10vw;
+    background: var(--primary-color);
+    color: var(--primary-color-font);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--primary-color-font);
+    color: whitesmoke;
+}
