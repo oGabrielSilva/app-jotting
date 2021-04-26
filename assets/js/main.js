@@ -13,7 +13,7 @@ function load() {
 
     document.addEventListener('click', (e) => {
         if (e.target === imgInput[0]) newNote()
-        if (e.target === imgInput[5]) moreOptions()
+        if (e.target === imgInput[4]) moreOptions()
         if (e.target === imgInput[2]) newNote()
     })
 }
