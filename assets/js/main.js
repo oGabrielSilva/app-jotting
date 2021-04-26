@@ -24,15 +24,21 @@ function load() {
   function createTasks(task, text) {
         if (task.value || text.value) allTasks.push({ title: task.value, text: text.value })
         task.value = text.value = ``
-        console.log(allTasks)
+        
         const outTasks = container.querySelector('.outTasks')
+        
         outTasks.innerHTML = ``
+        
         for (let task of allTasks) {
-            outTasks.innerHTML += `<div class='tasks'>
-                <h3>${task.title}</h3>
-                <p>${task.text}</p>
-            </div>`
+            outTasks.innerHTML += `
+                <div class='tasks'>
+                    <h3>${task.title}</h3>
+                    <p>${task.text}</p>
+                </div>
+            `
         }
+
+        localStorage.setItem(`task${allTasks.length}`, JSON.stringify(allTasks[allTasks.length - 1]))
     }
   
 
