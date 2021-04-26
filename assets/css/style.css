@@ -31,6 +31,7 @@
     font-size: 14px;
     border: none;
     font-family: 'Ubuntu', sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -54,10 +55,7 @@ header {
     cursor: pointer;
     border-radius: 100%;
     margin-right: .5em;
-}
-
-.imgInput:active {
-    background: var(--primary-color-font);
+    user-select: none;
 }
 
 .container {
@@ -197,4 +195,5 @@ li {
     padding: .2em 1.5em;
     background: var(--primary-color-font);
     border-radius: 2em;
+    user-select: none;
 }

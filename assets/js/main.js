@@ -9,12 +9,15 @@ function load() {
 
     function moreOptions() {
         document.querySelector('nav').classList.toggle('nav')
+        if (imgInput[4].getAttribute('src') === './assets/icon/more-options.svg') {
+            imgInput[4].setAttribute('src', './assets/icon/cancel.svg')
+        } else {
+            imgInput[4].setAttribute('src', './assets/icon/more-options.svg')
+        }
     }
 
     document.addEventListener('click', (e) => {
-        if (e.target === imgInput[0]) newNote()
         if (e.target === imgInput[4]) moreOptions()
-        if (e.target === imgInput[2]) newNote()
     })
 }
 
