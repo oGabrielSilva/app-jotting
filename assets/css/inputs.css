@@ -17,3 +17,11 @@ button:hover {
     background: var(--primary-color-font);
     color: whitesmoke;
 }
+
+.btn {
+    position: absolute;
+    top: 11vh;
+    right: 8vw;
+    border: 1px solid;
+    padding: .5em;
+}

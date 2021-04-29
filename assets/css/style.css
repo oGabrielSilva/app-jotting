@@ -21,6 +21,15 @@ body {
     
 }
 
+h3 {
+    margin: .5em 0;
+}
+
+p {
+    overflow: hidden;
+    height: 26vh;
+}
+
 .imgInput {
     width: 3em;
     cursor: pointer;
@@ -30,7 +39,7 @@ body {
 }
 
 .clicked {
-    animation: click .5s;
+    animation: click .4s;
 }
 
 .container {
@@ -46,15 +55,20 @@ body {
 }
 
 .tasks {
-    padding: 1em 1em 5em 1em;
-    max-height: 70vh;
+    padding: 1em 1em 5vh;
+    height: 35vh;
     background: var(--primary-color);
     border: 1px solid var(--primary-color-font);
     border-radius: .5em;
-    margin: 1em .5em;
+    margin: .5em;
     color: #fff;
-    overflow: auto;
+    overflow: hidden;
+    cursor: pointer;
     word-wrap: break-word;
+}
+
+.task {
+    display: none;
 }
 
 footer img {
