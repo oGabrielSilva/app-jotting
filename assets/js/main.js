@@ -135,6 +135,7 @@ function load() {
         btn.addEventListener('click', closeTask)
         task.appendChild(tar)
         tar.setAttribute(`style`, `overflow: auto;
+            animation: toFrom 1s;
             cursor: auto; 
             height: 85vh; 
             margin: 1em;

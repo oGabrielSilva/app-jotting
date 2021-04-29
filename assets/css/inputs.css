@@ -19,6 +19,8 @@ button:hover {
 }
 
 .btn {
+    animation: toFrom 1s;
+    z-index: 999;
     position: absolute;
     top: 11vh;
     right: 8vw;
