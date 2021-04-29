@@ -138,10 +138,10 @@ function load() {
             cursor: auto; 
             height: 85vh; 
             margin: 1em;
-        `)
+        `);
         
-        removeOrAddDisplay(outTasks, true)
-        removeOrAddDisplay(task, false)
+        removeOrAddDisplay(outTasks, true);
+        removeOrAddDisplay(task, false);
     }
 
     function removeOrAddDisplay(body, value) {
