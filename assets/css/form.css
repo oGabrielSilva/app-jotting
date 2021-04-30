@@ -15,7 +15,7 @@ form {
     animation: toFrom 1s;
 }
 
-#text {
+#text, .textarea {
     width: 80vw;
     border: none;
     padding: .5em 1em;
@@ -24,6 +24,10 @@ form {
     resize: none;
     background: var(--primary-color);
     color: whitesmoke;
+}
+
+.textarea {
+    height: 55vh;
 }
 
 .title {

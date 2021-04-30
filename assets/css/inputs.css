@@ -6,6 +6,7 @@ input {
 }
 
 button {
+    padding: .5em;
     min-width: 10vw;
     background: var(--primary-color);
     color: var(--primary-color-font);

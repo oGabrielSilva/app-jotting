@@ -59,7 +59,7 @@ function load() {
         body.innerHTML = ``
 
         for (let task of value) {
-            outTasks.innerHTML += `
+            body.innerHTML += `
                 <div class='tasks'>
                     <h3>${task.title}</h3>
                     <p>${task.text}</p>
@@ -130,9 +130,7 @@ function load() {
 
     function openTask() {
         const tar = this
-        task.innerHTML = '<button class="btn">Voltar</button>'
-        const btn = container.querySelector('.btn')
-        btn.addEventListener('click', closeTask)
+        task.innerHTML = ``
         task.appendChild(tar)
         tar.setAttribute(`style`, `overflow: auto;
             animation: toFrom 1s;
@@ -144,6 +142,7 @@ function load() {
         
         removeOrAddDisplay(outTasks, true);
         removeOrAddDisplay(task, false);
+        btnTask()
     }
 
     function removeOrAddDisplay(body, value) {
@@ -157,15 +156,46 @@ function load() {
         removeOrAddDisplay(outTasks, false)
     }
 
+    function btnTask() {
+        task.innerHTML += '<button class="btn">Voltar</button>'
+        const btn = container.querySelector('.btn')
+        btn.addEventListener('click', closeTask)
+    }
+
     //ouvidores para as tasks
 
     //edite tasks 
 
     function editeTask() {
+        moreOptions();
         removeOrAddDisplay(outTasks, true);
         removeOrAddDisplay(task, false);
-        const btn = container.querySelector('.btn')
-        btn.addEventListener('click', closeTask)
+        task.innerHTML = ``;
+        const newForm = document.createElement('form');
+        const btnOk = document.createElement('button')
+        btnOk.innerHTML = 'OK'
+
+        for(let inTask of allTasks) {
+            const apen = document.createElement('div')
+            apen.setAttribute('style', `
+                border-bottom: 1px solid var(--primary-color-font);
+                margin-bottom: .5em; 
+                padding: .5em;`);
+
+            apen.innerHTML = `
+                <div class="title">
+                    <input type="text" value="${inTask.title}" autocomplete="off" maxlength="21">
+                </div>
+                <textarea class="textarea">${inTask.text}</textarea>
+            `
+
+            newForm.appendChild(apen);
+        }
+
+        newForm.setAttribute('class', 'form')
+        newForm.appendChild(btnOk)
+        task.appendChild(newForm)
+        btnTask()
     }
 
     //edite tasks 
@@ -173,10 +203,11 @@ function load() {
     //delete task
 
     function deleteTask() {
+        moreOptions()
         removeOrAddDisplay(outTasks, true);
         removeOrAddDisplay(task, false);
-        const btn = container.querySelector('.btn')
-        btn.addEventListener('click', closeTask)
+        task.innerHTML = ''
+        btnTask()
     }
 
     //delete task
@@ -184,6 +215,7 @@ function load() {
     //sobre nós
 
     function aboutUs() {
+        moreOptions()
         window.open('https://github.com/oGabrielSilva')
     }
 
@@ -201,7 +233,7 @@ function load() {
     })
 
     //ouvidores 
-    // console.log(imgInput, liInput)
+    // console.log(form)
 }
 
 load()
