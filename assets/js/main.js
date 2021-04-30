@@ -78,6 +78,13 @@ function load() {
 
     //Storage
 
+    function setStorageTasks() {
+        localStorage.clear()
+        for (let setT in allTasks) {
+            localStorage.setItem(`task${setT}`, JSON.stringify(allTasks[setT]))
+        }
+    }
+
     function loadTasksStorage() {
         const len = localStorage.length;
 
@@ -195,15 +202,17 @@ function load() {
             `
             i++
             newForm.appendChild(apen);
-        }
+        };
 
-        newForm.setAttribute('class', 'form')
-        newForm.setAttribute('style', 'z-index: 100')
-        newForm.appendChild(btnOk)
-        task.appendChild(newForm)
-        btnTask()
-        const submitForm = task.querySelector('form')
-        submitForm.addEventListener('submit', saveTasks)
+        newForm.setAttribute('class', 'form');
+        newForm.setAttribute('style', 'z-index: 100');
+        newForm.appendChild(btnOk);
+        task.appendChild(newForm);
+
+        btnTask();
+        
+        const submitForm = task.querySelector('form');
+        submitForm.addEventListener('submit', saveTasks);
     }
 
     function saveTasks(e) {
@@ -217,11 +226,8 @@ function load() {
         setTasks(outTasks, allTasks)
         removeOrAddDisplay(outTasks, false);
         removeOrAddDisplay(task, true);
-        localStorage.clear()
         
-        for(let setT in allTasks) {
-            localStorage.setItem(`task${setT}`, JSON.stringify(allTasks[setT]))
-        }
+        setStorageTasks()
     }
 
     //edite tasks 
@@ -233,7 +239,22 @@ function load() {
         removeOrAddDisplay(outTasks, true);
         removeOrAddDisplay(task, false);
         task.innerHTML = ''
+        setTasks(task, allTasks)
         btnTask()
+        let i = 0;
+        const delTa = task.querySelectorAll('.tasks')
+        
+        for(let del of delTa) {
+            const delT = i
+            del.addEventListener('click', () => {
+                allTasks.splice(delT, 1)
+                removeOrAddDisplay(outTasks, false);
+                removeOrAddDisplay(task, true);
+                setTasks(outTasks, allTasks)
+                setStorageTasks()
+            })
+            i++
+        }
     }
 
     //delete task
