@@ -6,6 +6,7 @@ function load() {
     const form = container.querySelector('form');
     const liInput = document.querySelectorAll('li');
     const outTasks = container.querySelector('.outTasks');
+    const task = container.querySelector('.task')
     const allTasks = [];
     let tasks;
 
@@ -129,13 +130,13 @@ function load() {
 
     function openTask() {
         const tar = this
-        const task = container.querySelector('.task')
         task.innerHTML = '<button class="btn">Voltar</button>'
         const btn = container.querySelector('.btn')
         btn.addEventListener('click', closeTask)
         task.appendChild(tar)
         tar.setAttribute(`style`, `overflow: auto;
             animation: toFrom 1s;
+            z-index: 9;
             cursor: auto; 
             height: 85vh; 
             margin: 1em;
@@ -151,7 +152,6 @@ function load() {
     }
 
     function closeTask() {
-        const task = container.querySelector('.task')
         setTasks(outTasks, allTasks)
         removeOrAddDisplay(task, true)
         removeOrAddDisplay(outTasks, false)
@@ -159,16 +159,49 @@ function load() {
 
     //ouvidores para as tasks
 
+    //edite tasks 
+
+    function editeTask() {
+        removeOrAddDisplay(outTasks, true);
+        removeOrAddDisplay(task, false);
+        const btn = container.querySelector('.btn')
+        btn.addEventListener('click', closeTask)
+    }
+
+    //edite tasks 
+
+    //delete task
+
+    function deleteTask() {
+        removeOrAddDisplay(outTasks, true);
+        removeOrAddDisplay(task, false);
+        const btn = container.querySelector('.btn')
+        btn.addEventListener('click', closeTask)
+    }
+
+    //delete task
+
+    //sobre nós
+
+    function aboutUs() {
+        window.open('https://github.com/oGabrielSilva')
+    }
+
+    //sobre nós
+
     //ouvidores
 
     form.addEventListener('submit', newTask);
     document.addEventListener('click', (e) => {
         if (e.target === imgInput[0] || e.target === liInput[0]) newNote()
+        if (e.target === imgInput[1] || e.target === liInput[1]) editeTask()
+        if (e.target === imgInput[2] || e.target === liInput[2]) deleteTask()
+        if (e.target === imgInput[3] || e.target === liInput[3]) aboutUs()
         if (e.target === imgInput[4]) moreOptions()
     })
 
     //ouvidores 
-
+    // console.log(imgInput, liInput)
 }
 
 load()
