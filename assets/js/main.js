@@ -20,6 +20,8 @@ function load() {
     // formulário
 
     function openForm() {
+        removeOrAddDisplay(outTasks, true)
+        removeOrAddDisplay(document.querySelector('footer'), true)
         container.querySelector('form').classList.toggle('form')
     }
 
@@ -37,6 +39,8 @@ function load() {
     function newTask(e) {
         e.preventDefault();
         openForm()
+        removeOrAddDisplay(outTasks, false)
+        removeOrAddDisplay(document.querySelector('footer'), false)
 
         const task = form.querySelector('#task');
         const text = form.querySelector('#text');
@@ -174,28 +178,50 @@ function load() {
         const newForm = document.createElement('form');
         const btnOk = document.createElement('button')
         btnOk.innerHTML = 'OK'
+        let i = 0;
 
         for(let inTask of allTasks) {
             const apen = document.createElement('div')
+
             apen.setAttribute('style', `
                 border-bottom: 1px solid var(--primary-color-font);
-                margin-bottom: .5em; 
-                padding: .5em;`);
+                margin-bottom: 1em; 
+                padding: .5em;
+            `);
 
             apen.innerHTML = `
-                <div class="title">
-                    <input type="text" value="${inTask.title}" autocomplete="off" maxlength="21">
-                </div>
-                <textarea class="textarea">${inTask.text}</textarea>
+                <input type="text" id="in${i}" value="${inTask.title}" autocomplete="off" maxlength="21">
+                <textarea id="text${i}"class="textarea">${inTask.text}</textarea>
             `
-
+            i++
             newForm.appendChild(apen);
         }
 
         newForm.setAttribute('class', 'form')
+        newForm.setAttribute('style', 'z-index: 100')
         newForm.appendChild(btnOk)
         task.appendChild(newForm)
         btnTask()
+        const submitForm = task.querySelector('form')
+        submitForm.addEventListener('submit', saveTasks)
+    }
+
+    function saveTasks(e) {
+        e.preventDefault()
+
+        for (let i = 0; i < allTasks.length; i++) {
+            allTasks[i].title = document.getElementById(`in${i}`).value
+            allTasks[i].text = document.getElementById(`text${i}`).value
+        }
+
+        setTasks(outTasks, allTasks)
+        removeOrAddDisplay(outTasks, false);
+        removeOrAddDisplay(task, true);
+        localStorage.clear()
+        
+        for(let setT in allTasks) {
+            localStorage.setItem(`task${setT}`, JSON.stringify(allTasks[setT]))
+        }
     }
 
     //edite tasks 
@@ -233,7 +259,7 @@ function load() {
     })
 
     //ouvidores 
-    // console.log(form)
+    // console.log(allTasks)
 }
 
 load()

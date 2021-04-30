@@ -32,7 +32,7 @@ li {
     cursor: pointer;
     min-width: 10vw;
     padding: .2em 1.5em;
-    background: var(--primary-color-font);
+    background: #0f3f66;
     border-radius: 2em;
     user-select: none;
 }

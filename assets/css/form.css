@@ -11,6 +11,7 @@ form {
     background: var(--primary-color);
     border: 1px solid var(--primary-color-font);
     width: 95vw;
+    z-index: 999;
     margin: 1.5em auto;
     animation: toFrom 1s;
 }
@@ -28,6 +29,7 @@ form {
 
 .textarea {
     height: 55vh;
+    width: 100%;
 }
 
 .title {
